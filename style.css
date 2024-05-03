@@ -57,9 +57,7 @@ body{
   border: 1px solid var(--primary);
 }
 .form .add:hover{
-  color: var(--primary);
-  border: 1px solid var(--primary);
-  background-color: transparent;
+  filter: brightness(90%);
 }
 
 .tasks{

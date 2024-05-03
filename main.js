@@ -39,11 +39,12 @@ addButton.addEventListener("click", function(){
         tasks.append(task);
       }
     }
-
     if(window.localStorage.Tasks !== undefined && tasks.querySelector(".empty") != null){
       tasks.querySelector(".empty").remove();
     }
+    document.querySelector(".input").value = "";
   }
+  document.querySelector(".input").focus();
 })
 
 
@@ -88,6 +89,7 @@ document.querySelector(".tasks").addEventListener("click", function(clicked){
       task.classList.remove("edit");
       task.classList.add("confirm");
       task.innerHTML = "Confirm";
+      taskEditField.focus();
     }
     else if(task.classList.value.split(" ").includes("confirm")){
       taskTitle.style.display = "block";
