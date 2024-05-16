@@ -14,11 +14,18 @@ body{
 }
 
 .container{
-  margin: 30px;
+  padding: 30px;
   display: flex;
   flex-direction: column;
   gap: 30px;
-  max-width: 750px;
+  /* width: 100%; */
+}
+@media (min-width: 640px){
+  .container{
+    min-width: 640px;
+    width: 60%;
+    margin: auto;
+  }
 }
 .container > div{
   background-color: #eee;
@@ -44,6 +51,7 @@ body{
   white-space: nowrap;
   overflow: hidden;
   text-overflow: clip;
+  caret-color: var(--primary);
 }
 .input:focus{
   outline-color: #ff52337e;
@@ -65,13 +73,12 @@ body{
   padding-bottom: 20px;
   display: grid;
   gap: 10px;
-  overflow: hidden;
+  /* overflow: hidden; */
 }
 
 .tasks > header{
   background-color: var(--primary);
   color: white;
-  position: sticky;
   padding: 10px;
   font-weight: 600;
   font-size: 1.6rem;
@@ -95,7 +102,7 @@ body{
   gap: 10px;
   align-items: center;
   display: grid;
-  grid-template-columns: 1fr auto auto;
+  grid-template-columns: 1fr auto;
   border-radius: var(--radius);
 }
 
@@ -108,59 +115,72 @@ body{
   text-overflow: ellipsis;
 }
 
-.btn{
-  /* font-size: 1.2rem; */
+.task .settings{
+  position: relative;
+  background-color: var(--primary);
   border-radius: 7px;
+}
+
+.task .settings > .settings-btn{
+  color: white;
+  font-size: 1.4rem;
+  padding: 0 8px;
+  font-weight: 600;
+  cursor: pointer;
+  user-select: none;
+  transition: 0.2s ease;
+  transition-property: background-color, scale, rotate;
+  text-align: center;
+}
+/* .task .settings > .settings-btn:active{
+  rotate: 45deg;
+} */
+
+.task .buttons-container{
+  background-color: #f8f2f0;
+  filter: drop-shadow(0px 0px 10px #0000002a);
+  padding: 5px 0;
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, 5px);
+  border-radius: 5px;
+  /* overflow: hidden; */
+}
+
+.task .buttons-container > .btn{
+  color: var(--primary);
+  /* background-color: white; */
+  font-weight: 500;
   transition: 0.2s ease;
   transition-property: background-color,scale;
   cursor: pointer;
   user-select: none;
   text-align: center;
-  /* font-weight: 400; */
   padding: 8px 16px;
-  background-color: #dddddd;
-  color: white;
-  border: 1px solid #dddddd;
-}
-.btn:active{
-  scale: 0.95;
 }
 
-.task .delete{
-  font-weight: 500;
-  /* padding: 10px 20px; */
-  color: #db2911;
-  border: 1px solid #db2911;
-  background-color: transparent;
-}
-.task .delete:hover{
-
+.task .buttons-container > .btn:hover{
   color: white;
-  border: 1px solid #db2911;
+  background-color: var(--primary);
+}
+
+.task .buttons-container > .btn:active{
+  scale: 0.97;
+}
+
+/* .task .buttons-container > .delete:hover{
   background-color: #db2911;
-}
+  border-color: #db2911;
+} */
 
-.task .edit{
-  --edit-color: var(--primary);
-  font-weight: 500;
-  color: var(--edit-color);
-  border: 1px solid var(--edit-color);
-  background-color: transparent;
-}
-.task .edit:hover{
-  color: white;
-  border: 1px solid var(--edit-color);
-  background-color: var(--edit-color);
-}
-
-.task .confirm{
+.task .buttons-container > .confirm{
   --confirm-color: #2ad68f;
   font-weight: 500;
   color: var(--confirm-color);
   border: 1px solid var(--confirm-color);
-  background-color: transparent;
+  border-radius: 7px;
 }
-.task .confirm:hover{
+.task .buttons-container > .confirm:hover{
   color: white;
   border: 1px solid var(--confirm-color);
   background-color: var(--confirm-color);
@@ -175,6 +195,7 @@ body{
   white-space: nowrap;
   overflow: hidden;
   text-overflow: clip;
+  caret-color: #2ad68f;
 }
 .task > .edit-field:focus{
   outline-color: #2ad68f7e;
