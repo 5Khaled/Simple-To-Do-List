@@ -221,10 +221,9 @@ body{
 /*  */
 
 .tasks .tasks-container > .task > [type = checkbox]{
-  /* width: 1.6rem; */
-  /* height: 1.6rem; */
-  aspect-ratio: 0.7;
-  margin: 0;
+  width: 1.6rem;
+  height: 1.6rem;
+  margin: auto;
   accent-color: var(--primary-bg);
   cursor: pointer;
 }
