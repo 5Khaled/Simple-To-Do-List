@@ -170,6 +170,10 @@ body{
   border: 1px solid var(--base-bg-300);
 }
 
+.edit-active{
+  grid-template-columns: 1fr auto !important;
+}
+
 /*  */
 .task > .edit-field, .task > .edit-confirm{
   display: none;
@@ -177,6 +181,13 @@ body{
   /* padding-top: 5px;
   padding-bottom: 5px; */
   padding: 5px 14px;
+}
+
+.edit-active > [type = checkbox], .edit-active > label, .edit-active > .drop-down{
+  display: none;
+}
+.edit-active > .edit-field, .edit-active > .edit-confirm{
+  display: block;
 }
 
 .task > .edit-field{
@@ -207,24 +218,16 @@ body{
   scale: 0.95;
 }
 
-.edit-active{
-  grid-template-columns: 1fr auto !important;
-}
-.edit-active > [type = checkbox], .edit-active > label, .edit-active > .drop-down{
-  display: none;
-}
-.edit-active > .edit-field, .edit-active > .edit-confirm{
-  display: block;
-}
 /*  */
 
 .tasks .tasks-container > .task > [type = checkbox]{
-  width: 1.6rem;
+  /* width: 1.6rem; */
+  /* height: 1.6rem; */
+  aspect-ratio: 0.7;
   margin: 0;
   accent-color: var(--primary-bg);
   cursor: pointer;
 }
-
 .tasks .tasks-container > .task > label{
   font-size: 1.4rem;
   font-weight: 600;
